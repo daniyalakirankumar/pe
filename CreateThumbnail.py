@@ -11,9 +11,9 @@ sns_client = boto3.client('sns')
 def resize_image(image_path, resized_path, sns_client):
     Topic_Arn = os.environ['Topic_Arn']
     with Image.open(image_path) as image:
-        width, height = image.size
-        new_width = width // 2
-        new_height = height // 2
+        # width, height = image.size
+        new_width = 200
+        new_height = 200
         resized_image = image.resize((new_width, new_height))
         resized_image.save(resized_path)
         print(image_path + " " + resized_path)
